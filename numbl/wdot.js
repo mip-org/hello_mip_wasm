@@ -12,15 +12,6 @@ register({
         var b = args[1];
         var n = a.data.length;
 
-        if (!wasm) {
-          // Pure JS fallback
-          var sum = 0;
-          for (var i = 0; i < n; i++) {
-            sum += a.data[i] * b.data[i];
-          }
-          return sum;
-        }
-
         var BYTES = 8;
         var exports = wasm.exports;
         var mem = exports.memory;
